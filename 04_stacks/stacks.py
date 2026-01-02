@@ -53,3 +53,10 @@ class Stack:
 
         return holding_pointer
     
+myStack = Stack()
+myStack.push("google")
+myStack.push("google2")
+myStack.push("google3")
+print(myStack.peek())
+myStack.pop()
+print("after pop():",myStack.peek())

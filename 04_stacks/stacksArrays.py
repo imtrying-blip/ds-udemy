@@ -19,7 +19,23 @@ class Stack:
 
 # pop() -> Remove and return the top element:
     def pop(self):
-        last_node = self.array(-1)
-        self.array.pop(last_node)
-        return last_node
+        self.array.pop(-1)
+        return self.array[-1]
     
+    def print_stack(self):
+        return self.array
+        
+myStack = Stack()
+# print(myStack.peek())
+myStack.push('google')
+print("after push google:", myStack.peek())
+myStack.push('ztm')
+print("after push ztm:", myStack.peek())
+myStack.push('discord')
+print("after push discord:", myStack.peek())
+print(myStack.print_stack())
+myStack.pop()
+print("after pop():", myStack.peek())
+# myStack.pop()
+# myStack.pop()
+print(myStack.print_stack())
