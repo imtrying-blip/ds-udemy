@@ -5,14 +5,14 @@ class Node:
         self.next = next
 
 class Stack:
-    def __init__(self, top=None, bottom=None, length=0):
-        self.top = top
-        self.bottom = bottom
-        self.length = length
+    def __init__(self):
+        self.top = None
+        self.bottom = None
+        self.length = 0
 
 # peek() -> Return the top element without removing it:
     def peek(self):
-        return self.top.value
+        return None if self.length == 0 else self.top.value
 
 # push() -> Add an element to the top of the stack:
     def push(self, value):
@@ -27,6 +27,7 @@ class Stack:
             holding_pointer = self.top
             self.top = new_node
             new_node.next = holding_pointer
+            # self.bottom is still the same in this case
 
         self.length += 1
 
@@ -38,12 +39,15 @@ class Stack:
         if self.length == 0:
             return None
         
-        # Case: Single node in stack
-        elif self.length == 1:
-            self.bottom = None
-
         holding_pointer = self.top
-        self.top = holding_pointer.next
+
+        # Case: Single node in stack
+        if self.length == 1:
+            self.bottom = None
+            self.top == None
+
+        else:
+            self.top = holding_pointer.next
 
         self.length -= 1
 
